@@ -1,9 +1,9 @@
-!!!
-%html
-  %head
-    %meta{charset: "utf-8"}
-    %title Iron Yardicon
-  %body
-    %ul
-    -@recent_terms.each do |term|
-      %li=term.name
+- content_for :title do
+  Iron Yardicon
+
+%ul
+-@recent_terms.each do |term|
+  %li= term.name
+
+%a{ href: "/terms"} Terms Index
+%a{ href: "/categories"} Categories Index

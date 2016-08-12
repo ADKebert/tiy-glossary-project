@@ -1,5 +1,6 @@
 require 'active_record'
 require 'sinatra'
+require 'sinatra/content_for'
 require 'sinatra/reloader' if development?
 
 ActiveRecord::Base.establish_connection(
@@ -26,7 +27,7 @@ end
 # -------------HOMEPAGE--------------
 get '/' do
   # list of 5 recent terms
-  @recent_terms = Term.order(:id).take(5).reverse
+  @recent_terms = Term.order(id: :desc).take(5)
   # link to terms index
   # link to categories index
   haml :home
@@ -35,8 +36,10 @@ end
 # --------------TERM------------------
 get '/terms' do
   # alphabetical list of all terms
+  @terms = Term.all.order(:name)
   # add a term
   # search a term
+  haml :terms_index
 end
 
 post '/terms' do
@@ -66,7 +69,9 @@ end
 # --------------CATEGORY----------------
 get '/categories' do
   # alphabetical list of all categories
+  @categories = Category.all.order(:name)
   # add a category
+  haml :categories_index
 end
 
 post '/categories' do

@@ -1,0 +1,6 @@
+- content_for :title do
+  Categories Index
+
+%ul
+- @categories.each do |category|
+  %li= category.name

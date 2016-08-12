@@ -1,0 +1,6 @@
+- content_for :title do
+  Terms Index
+
+%ul
+- @terms.each do |term|
+  %li= term.name
