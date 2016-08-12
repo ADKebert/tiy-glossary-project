@@ -1,0 +1,14 @@
+%form{ name: "term_builder", action: "/terms", method: "post"}
+  %label
+    %input{type: "text", name: "term[name]"} Name
+  %label
+    %input{type: "text", name: "term[definition]"}Definition
+  %label
+    %input{type: "text", name: "term[author]"}Author
+  %label
+    %input{type: "text", name: "term[web_link]"}Link
+  %label
+  - @categories.each do |category|
+    %input{type: "checkbox", value: "#{category.id}"}
+    =category.name
+  %input{type: "submit", value: "Save"}

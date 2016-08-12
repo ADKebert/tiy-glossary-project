@@ -44,10 +44,15 @@ end
 
 post '/terms' do
   # add a new term to the database
+  Term.create params["term"]
+
+  redirect '/terms'
 end
 
 get '/terms/new' do
   # display a term creation form
+  @categories = Category.all.order(:name)
+  haml :terms_new
 end
 
 get '/terms/:id/edit' do
