@@ -1,11 +1,13 @@
 require 'active_record'
-# require 'sinatra'
-# require 'sinatra/reloader' if development?
+require 'sinatra'
+require 'sinatra/reloader' if development?
 
 ActiveRecord::Base.establish_connection(
   adapter: 'sqlite3',
   database: 'tiy_glossary.db'
 )
+
+ActiveRecord::Base.logger = Logger.new(STDOUT)
 
 class Term < ActiveRecord::Base
   belongs_to :category
@@ -15,24 +17,58 @@ class Category < ActiveRecord::Base
   has_many :terms
 end
 
-# Category.create(name: "Testing2", subject_area: "Back End Engineering")
-# Term.create(name: "Decepticon",
-#             definition: "Malicious transforming robot and enemy of the AutoBots",
-#             author: "Alan Kebert",
-#             web_link: "www.testurl.com",
-#             category_id: 2)
-# Term.create(name: "AutoBot",
-#             definition: "Benevolent transforming robot and enemy of the Decepticons",
-#             author: "Alan Kebert",
-#             web_link: "www.testurl.com",
-#             category_id: 1)
-
-terms = Term.all
-
-terms.each do |term|
-  puts "The term is #{term.name} and it means \"#{term.definition}\""
+# -------------HOMEPAGE--------------
+get '/' do
+  # list of 5 recent terms
+  # link to terms index
+  # link to categories index
 end
-terms = Term.all.order(:name).reverse_order
-p terms
-terms = Term.where("definition like ?", "%robot%").take(2)
-p terms
+
+# --------------TERM------------------
+get '/terms' do
+  # alphabetical list of all terms
+  # add a term
+  # search a term
+end
+
+post '/terms' do
+  # add a new term to the database
+end
+
+get '/terms/new' do
+  # display a term creation form
+end
+
+get '/terms/:id/edit' do
+  # display term edit form
+end
+
+get '/terms/:id' do
+  # display one term's information
+end
+
+put '/terms/:id' do
+  # update one term
+end
+
+delete '/terms/:id' do
+  # delete a term
+end
+
+# --------------CATEGORY----------------
+get '/categories' do
+  # alphabetical list of all categories
+  # add a category
+end
+
+post '/categories' do
+  # add a new category to the database
+end
+
+get '/categories/new' do
+  # display a category creation from
+end
+
+get '/categories/:id' do
+  # display a single category's information
+end
