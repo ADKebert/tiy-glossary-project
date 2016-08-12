@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    %meta{charset: "utf-8"}
+    %title Iron Yardicon
+  %body
+    %ul
+    -@recent_terms.each do |term|
+      %li=term.name

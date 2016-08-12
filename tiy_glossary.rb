@@ -9,6 +9,8 @@ ActiveRecord::Base.establish_connection(
 
 ActiveRecord::Base.logger = Logger.new(STDOUT)
 
+Rack::MethodOverride
+
 class Term < ActiveRecord::Base
   belongs_to :category
 end
@@ -17,11 +19,17 @@ class Category < ActiveRecord::Base
   has_many :terms
 end
 
+after do
+  ActiveRecord::Base.connection.close
+end
+
 # -------------HOMEPAGE--------------
 get '/' do
   # list of 5 recent terms
+  @recent_terms = Term.order(:id).take(5).reverse
   # link to terms index
   # link to categories index
+  haml :home
 end
 
 # --------------TERM------------------
