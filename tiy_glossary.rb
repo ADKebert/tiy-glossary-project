@@ -92,12 +92,18 @@ end
 
 post '/categories' do
   # add a new category to the database
+  Category.create(params["category"])
+
+  redirect '/categories'
 end
 
 get '/categories/new' do
   # display a category creation from
+  haml :categories_new
 end
 
 get '/categories/:id' do
   # display a single category's information
+  @category = Category.find(params[:id])
+  haml :categories_show
 end

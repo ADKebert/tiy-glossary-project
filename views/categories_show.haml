@@ -1,0 +1,7 @@
+- content_for :title do
+  = @category.name
+
+%ul
+  %li= @category.name
+  %li= @category.subject_area
+%a{href: "/categories"}Back to Index

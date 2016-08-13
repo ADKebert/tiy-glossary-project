@@ -1,0 +1,13 @@
+- content_for :title do
+  Category Creation
+
+%form{ name: "term_edit", action: "/categories", method: "post"}
+  %label
+    %input{type: "text", name: "category[name]"} Name
+  %label
+    %input{type: "radio", value: "Front End Engineering", name: "category[subject_area]"}
+    Front End Engineering
+  %label
+    %input{type: "radio", value: "Back End Engineering", name: "category[subject_area]"}
+    Back End Engineering
+  %input{type: "submit", value: "Save"}

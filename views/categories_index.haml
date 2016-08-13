@@ -3,4 +3,6 @@
 
 %ul
 - @categories.each do |category|
-  %li= category.name
+  %li
+    %a{href: "/categories/#{category.id}"}= category.name
+%a{href: "/categories/new"}New Category
