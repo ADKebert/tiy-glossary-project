@@ -18,6 +18,8 @@
     %div.search
       %form{ name: "search", action: "/terms"}
         %input{ type: "text", name: "search_string"}
-        %input{ type: "submit", value: "Search"}
+        %label
+          %input{ type: "submit", value: "Search"}
+          %span.search_button
   %body
     = yield

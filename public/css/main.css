@@ -33,10 +33,31 @@ text-shadow: -1px 1px 0 #fba43e;
 .search {
   margin-right: 2em;
   background-color: #fba43e;
-  padding: 1em;
-  border-radius: 4px;
+  padding: 1em 0.9em 1em 1.5em;
+  border-radius: 0.4em;
+}
+
+.search form {
+  display: flex;
+  align-items: center;
+}
+
+.search input[type="text"] {
+  border: none;
+  height: 1.5em;
 }
 
 .search input[type="submit"] {
+  display: none;
+}
 
+.search input[type="submit"] + span {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  margin-left: 0.2em;
+  background-image: url("/images/Search-icon.svg");
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
 }
