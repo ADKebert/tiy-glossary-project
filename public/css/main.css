@@ -1,5 +1,6 @@
 body {
   font-family: "Roboto", sans-serif;
+  margin: 0;
 }
 
 /*----------------------------HEADER----------------------------------*/
@@ -81,12 +82,37 @@ text-shadow: -1px 1px 0 #fba43e;
   color: #727472;
 }
 
+/*----------------------------------PAGE BANNER-----------------------------*/
 div.banner {
   text-align: left;
+  border-bottom: 1px solid #fba43e;
+}
+
+.index_banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gallery .index_banner a {
+  display: inline-block;
+  height: 1.5em;
+  width: 1.5em;
+  background-image: url("/images/add.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: transparent;
+  border: 2px solid transparent;
+  margin-right: -0.2em;
+}
+
+.gallery .index_banner a:hover {
+  text-shadow: none;
+  border: 2px solid #fba43e;
 }
 
 .gallery h2 {
-  border-bottom: 1px solid #fba43e;
   margin: 0;
 }
 
@@ -117,4 +143,64 @@ div.banner {
 
 .author_link a {
   margin-top: none;
+}
+
+/*------------------------INDEX-------------------*/
+ul.index {
+  list-style: none;
+}
+
+.index li {
+  margin-top: 0.8em;
+  font-size: 1.5em;
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.index a {
+  margin-right: 0.5em;
+}
+
+.edit_delete {
+  display: flex;
+  align-items: center;
+}
+
+.edit_delete input{
+  display: none;
+}
+
+.edit_delete input[value="Edit"] + span {
+  width: 0.6em;
+  height: 0.6em;
+  display: inline-block;
+  background-image: url("/images/Crayon-icon.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 0.5em;
+  border: 2px solid transparent;
+}
+
+.edit_delete input[value="Edit"] + span:hover {
+  border: 2px solid #fba43e;
+  border-radius: 50%;
+}
+
+.edit_delete input[value="Delete"] + span {
+  width: 0.7em;
+  height: 0.7em;
+  display: inline-block;
+  background-image: url("/images/trash.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 2px solid transparent;
+}
+
+.edit_delete input[value="Delete"] + span:hover {
+  border: 2px solid #fba43e;
+  border-radius: 50%;
 }

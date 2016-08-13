@@ -1,13 +1,22 @@
 - content_for :title do
   Terms Index
 
-%ul
-- @terms.each do |term|
-  %li
-    %a{href: "/terms/#{term.id}"}= term.name
-    %form{name: "edit_term", action: "/terms/#{term.id}/edit"}
-      %input{type: "submit", value: "Edit"}
-    %form{name: "delete_term", action: "/terms/#{term.id}", method: "post"}
-      %input{ name: "_method", value: "delete", type: "hidden"}
-      %input{type: "submit", value: "Delete"}
-%a{href: "/terms/new"} Add a Term
+%ul.index
+  %div.banner
+    %div.index_banner
+      %h2 Terms List
+      %a{href: "/terms/new"} Add a Term
+
+  - @terms.each do |term|
+    %li
+      %a{href: "/terms/#{term.id}"}= term.name
+      %div.edit_delete
+        %form{name: "edit_term", action: "/terms/#{term.id}/edit"}
+          %label
+            %input{type: "submit", value: "Edit"}
+            %span
+        %form{name: "delete_term", action: "/terms/#{term.id}", method: "post"}
+          %input{ name: "_method", value: "delete", type: "hidden"}
+          %label
+            %input{type: "submit", value: "Delete"}
+            %span
