@@ -78,6 +78,8 @@ end
 
 delete '/terms/:id' do
   # delete a term
+  Term.find(params[:id]).destroy
+  redirect '/terms'
 end
 
 # --------------CATEGORY----------------

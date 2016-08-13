@@ -5,5 +5,9 @@
 - @terms.each do |term|
   %li
     %a{href: "/terms/#{term.id}"}= term.name
-    %a{href: "/terms/#{term.id}/edit"}Edit
+    %form{name: "edit_term", action: "/terms/#{term.id}/edit"}
+      %input{type: "submit", value: "Edit"}
+    %form{name: "delete_term", action: "/terms/#{term.id}", method: "post"}
+      %input{ name: "_method", value: "delete", type: "hidden"}
+      %input{type: "submit", value: "Delete"}
 %a{href: "/terms/new"} Add a Term
