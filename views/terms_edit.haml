@@ -1,0 +1,18 @@
+%form{ name: "term_builder", action: "/terms/#{@term.id}", method: "post"}
+  %input{ name: "_method", value: "put", type: "hidden"}
+  %label
+    %input{type: "text", name: "term[name]", value: "#{@term.name}"} Name
+  %label
+    %input{type: "text", name: "term[definition]", value: "#{@term.definition}"}Definition
+  %label
+    %input{type: "text", name: "term[author]", value: "#{@term.author}"}Author
+  %label
+    %input{type: "text", name: "term[web_link]", value: "#{@term.web_link}"}Link
+  %label
+  - @categories.each do |category|
+    - if @term.category == category
+      %input{type: "checkbox", value: "#{category.id}", name: "term[category_id]", checked: "true"}
+    - else
+      %input{type: "checkbox", value: "#{category.id}", name: "term[category_id]"}
+    =category.name
+  %input{type: "submit", value: "Save"}

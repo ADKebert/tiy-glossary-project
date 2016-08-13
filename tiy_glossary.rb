@@ -57,6 +57,9 @@ end
 
 get '/terms/:id/edit' do
   # display term edit form
+  @categories = Category.all.order(:name)
+  @term = Term.find(params[:id])
+  haml :terms_edit
 end
 
 get '/terms/:id' do
@@ -67,6 +70,10 @@ end
 
 put '/terms/:id' do
   # update one term
+  term = Term.find(params[:id])
+  term.update_attributes(params["term"])
+
+  redirect "/terms/#{params[:id]}"
 end
 
 delete '/terms/:id' do
