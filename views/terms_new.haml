@@ -1,17 +1,24 @@
 - content_for :title do
   Term Creation
 
-%form{ name: "term_edit", action: "/terms", method: "post"}
+%form.term_create{ name: "term_edit", action: "/terms", method: "post"}
   %label
-    %input{type: "text", name: "term[name]"} Name
+    Name:
+    %input{type: "text", name: "term[name]"}
   %label
-    %input{type: "text", name: "term[definition]"}Definition
+    Definition:
+    %textarea{rows: "5", name: "term[definition]"}
   %label
-    %input{type: "text", name: "term[author]"}Author
+    Author:
+    %input{type: "text", name: "term[author]"}
   %label
-    %input{type: "text", name: "term[web_link]"}Link
+    Web Link:
+    %input{type: "text", name: "term[web_link]"}
   %label
-  - @categories.each do |category|
-    %input{type: "checkbox", value: "#{category.id}", name: "term[category_id]"}
-    =category.name
-  %input{type: "submit", value: "Save"}
+  %div.category_checkboxes
+    - @categories.each do |category|
+      %div.cat_with_box
+        =category.name
+        %input{type: "checkbox", value: "#{category.id}", name: "term[category_id]"}
+  %div.create_save
+    %input{type: "submit", value: "Save"}

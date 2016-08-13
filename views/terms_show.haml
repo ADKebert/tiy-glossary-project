@@ -5,6 +5,8 @@
   %p
     %strong= "#{@term.name}:"
     = @term.definition
+  %p
+    = "Category: #{@term.category.name}"
   %div.author_link
     %p
       = "Author: #{@term.author}"
