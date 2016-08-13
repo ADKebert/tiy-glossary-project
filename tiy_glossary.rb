@@ -61,6 +61,8 @@ end
 
 get '/terms/:id' do
   # display one term's information
+  @term = Term.find(params[:id])
+  haml :terms_show
 end
 
 put '/terms/:id' do

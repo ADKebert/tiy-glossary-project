@@ -9,6 +9,6 @@
     %input{type: "text", name: "term[web_link]"}Link
   %label
   - @categories.each do |category|
-    %input{type: "checkbox", value: "#{category.id}"}
+    %input{type: "checkbox", value: "#{category.id}", name: "term[category_id]"}
     =category.name
   %input{type: "submit", value: "Save"}

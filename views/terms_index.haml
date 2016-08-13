@@ -3,5 +3,6 @@
 
 %ul
 - @terms.each do |term|
-  %li= term.name
+  %li
+    %a{href: "/terms/#{term.id}"}= term.name
 %a{href: "/terms/new"} Add a Term
