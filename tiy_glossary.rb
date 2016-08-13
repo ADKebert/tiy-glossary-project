@@ -36,7 +36,14 @@ end
 # --------------TERM------------------
 get '/terms' do
   # alphabetical list of all terms
-  @terms = Term.all.order(:name)
+  if params["search_string"]
+    @terms = Term.where("name LIKE ?
+                        OR definition LIKE ?",
+                        "%#{params["search_string"]}%",
+                        "%#{params["search_string"]}%")
+  else
+    @terms = Term.all.order(:name)
+  end
   # add a term
   # search a term
   haml :terms_index

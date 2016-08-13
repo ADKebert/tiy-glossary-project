@@ -4,5 +4,18 @@
     %meta{charset: "utf-8"}
     %title
       = yield_content :title
+  %header
+    %div.links
+      %ul
+        %li
+          %a{ href: "/" } Home
+        %li
+          %a{ href: "/terms" } Terms
+        %li
+          %a{ href: "/categories" } Categories
+    %div.search
+      %form{ name: "search", action: "/terms"}
+        %input{ type: "text", name: "search_string"}
+        %input{ type: "submit", value: "Search"}
   %body
     = yield
