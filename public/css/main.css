@@ -210,3 +210,12 @@ ul.index {
 strong {
   color: #fba43e;
 }
+
+h3 {
+  border-bottom: 1px solid #fba43e;
+  font-size: 1.8em;
+}
+
+.show_a_term {
+  font-size: 1.6em;
+}
