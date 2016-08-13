@@ -1,0 +1,42 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+.links {
+  flex-grow: 2;
+  font-size: 1.5em;
+}
+
+.links ul {
+  list-style: none;
+  display: flex;
+}
+
+.links li {
+  margin-right: 2em;
+}
+
+.links a {
+  text-decoration: none;
+  color: #727472;
+}
+
+.links a:hover {
+text-shadow: -1px 1px 0 #fba43e;
+}
+
+.search {
+  margin-right: 2em;
+  background-color: #fba43e;
+  padding: 1em;
+  border-radius: 4px;
+}
+
+.search input[type="submit"] {
+
+}
