@@ -6,20 +6,22 @@
     %link{ href: "https://fonts.googleapis.com/css?family=Roboto:400,700", rel: "stylesheet", type: "text/css" }
     %title
       = yield_content :title
-  %header
-    %div.links
-      %ul
-        %li
-          %a{ href: "/" } Home
-        %li
-          %a{ href: "/terms" } Terms
-        %li
-          %a{ href: "/categories" } Categories
-    %div.search
-      %form{ name: "search", action: "/terms"}
-        %input{ type: "text", name: "search_string"}
-        %label
-          %input{ type: "submit", value: "Search"}
-          %span.search_button
   %body
-    = yield
+    %header
+      %div.links
+        %ul
+          %li
+            %a{ href: "/" } Home
+          %li
+            %a{ href: "/terms" } Terms
+          %li
+            %a{ href: "/categories" } Categories
+      %div.search
+        %form{ name: "search", action: "/terms"}
+          %input{ type: "text", name: "search_string"}
+          %label
+            %input{ type: "submit", value: "Search"}
+            %span.search_button
+    %div.main
+      %div.gallery
+        = yield

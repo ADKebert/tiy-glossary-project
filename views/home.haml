@@ -2,6 +2,15 @@
   Iron Yardicon
 
 %ul
--@recent_terms.each do |term|
-  %li
-    %a{href: "/terms/#{term.id}"}= term.name
+  %div.banner
+    %h2 Recent Additions
+
+  -@recent_terms.each do |term|
+    %li.list_a_term
+      %p
+        %a{href: "/terms/#{term.id}"}= "#{term.name}:"
+        = term.definition
+      %div.author_link
+        %p
+          = "Author: #{term.author}"
+        %a{href: "#{term.web_link}"} Explore

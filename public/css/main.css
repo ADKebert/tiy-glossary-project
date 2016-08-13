@@ -2,6 +2,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+/*----------------------------HEADER----------------------------------*/
 header {
   display: flex;
   align-items: center;
@@ -60,4 +61,60 @@ text-shadow: -1px 1px 0 #fba43e;
   background-image: url("/images/Search-icon.svg");
   background-repeat: no-repeat;
   background-position: 0px 0px;
+}
+
+/*-------------------------------------MAIN GALLERY-----------------------*/
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3em;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  font-size: 1.2em;
+  color: #727472;
+}
+
+div.banner {
+  text-align: left;
+}
+
+.gallery h2 {
+  border-bottom: 1px solid #fba43e;
+  margin: 0;
+}
+
+.gallery ul {
+  list-style: none;
+}
+
+
+.gallery a {
+  text-decoration: none;
+  color: #fba43e;
+}
+
+.gallery a:hover {
+  text-shadow: -1px 1px #727472;
+}
+
+.author_link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.author_link p {
+  margin: 0;
+}
+
+.author_link a {
+  margin-top: none;
 }
