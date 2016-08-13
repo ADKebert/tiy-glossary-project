@@ -27,7 +27,7 @@ end
 # -------------HOMEPAGE--------------
 get '/' do
   # list of 5 recent terms
-  @recent_terms = Term.order(id: :desc).take(5)
+  @recent_terms = Term.order(created_at: :desc).take(5)
   # link to terms index
   # link to categories index
   haml :home

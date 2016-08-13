@@ -10,15 +10,19 @@ ActiveRecord::Base.establish_connection(
 )
 ActiveRecord::Schema.define do
   create_table :terms do |column|
-    column.string  :name
-    column.string  :definition
-    column.string  :author
-    column.string  :web_link
-    column.integer :category_id
+    column.string   :name
+    column.string   :definition
+    column.string   :author
+    column.string   :web_link
+    column.integer  :category_id
+    column.datetime :created_at
+    column.datetime :updated_at
   end
 
   create_table :categories do |column|
-    column.string :name
-    column.string :subject_area
+    column.string   :name
+    column.string   :subject_area
+    column.datetime :created_at
+    column.datetime :updated_at
   end
 end
