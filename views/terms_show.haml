@@ -1,10 +1,11 @@
 - content_for :title do
   = @term.name
 
-%ul
-  %li= @term.name
-  %li= @term.definition
-  %li= @term.author
-  %li= @term.web_link
-  %li= @term.category.name
-%a{href: "/terms"}Back to Index
+%div.list_a_term
+  %p
+    %strong= "#{@term.name}:"
+    = @term.definition
+  %div.author_link
+    %p
+      = "Author: #{@term.author}"
+    %a{href: "#{@term.web_link}"} Explore

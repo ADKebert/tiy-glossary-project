@@ -1,8 +1,12 @@
 - content_for :title do
   Categories Index
 
-%ul
-- @categories.each do |category|
-  %li
-    %a{href: "/categories/#{category.id}"}= category.name
-%a{href: "/categories/new"}New Category
+%ul.index
+  %div.banner
+    %div.index_banner
+      %h2 Categories
+      %a{href: "/categories/new"} New Category
+
+  - @categories.each do |category|
+    %li
+      %a{href: "/categories/#{category.id}"}= category.name
