@@ -249,7 +249,7 @@ h3 {
 
 .cat_with_box {
   display: flex;
-  width: 28%;
+  width: 40%;
   justify-content: space-between;
   align-items: center;
   margin-right: 2em;
@@ -270,4 +270,14 @@ h3 {
 
 .create_save input[type="submit"]:hover {
   text-shadow: -1px 1px #727472;
+}
+
+.category_create label.name {
+  width: 100%;
+  display: flex;
+  margin-bottom: 1em;
+}
+.category_create input[type="text"] {
+  flex-grow: 2;
+  margin-left: 1em;
 }

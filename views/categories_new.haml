@@ -1,13 +1,16 @@
 - content_for :title do
   Category Creation
 
-%form{ name: "term_edit", action: "/categories", method: "post"}
-  %label
-    %input{type: "text", name: "category[name]"} Name
-  %label
-    %input{type: "radio", value: "Front End Engineering", name: "category[subject_area]"}
-    Front End Engineering
-  %label
-    %input{type: "radio", value: "Back End Engineering", name: "category[subject_area]"}
-    Back End Engineering
-  %input{type: "submit", value: "Save"}
+%form.category_create{ name: "term_edit", action: "/categories", method: "post"}
+  %label.name
+    Name:
+    %input{ type: "text", name: "category[name]" }
+  %div.subject_checkboxes
+    %label
+      Front End Engineering
+      %input{ type: "radio", value: "Front End Engineering", name: "category[subject_area]" }
+    %label
+      Back End Engineering
+      %input{ type: "radio", value: "Back End Engineering", name: "category[subject_area]" }
+  %div.create_save
+    %input{ type: "submit", value: "Save" }
