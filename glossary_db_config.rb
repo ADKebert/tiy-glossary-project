@@ -25,4 +25,11 @@ ActiveRecord::Schema.define do
     column.datetime :created_at
     column.datetime :updated_at
   end
+
+  create_table :comments do |column|
+    column.integer  :term_id
+    column.datetime :created_at
+    column.string   :body
+    column.string   :author
+  end
 end
