@@ -2,7 +2,8 @@
   = @term.name
   Edit
 
-%form.term_create{ name: "term_edit", action: "/terms", method: "post"}
+%form.term_create{ name: "term_edit", action: "/terms/#{@term.id}", method: "post"}
+  %input{ name: "_method", value: "put", type: "hidden" }
   %label
     Name:
     %input{type: "text", name: "term[name]", value: "#{@term.name}" }
