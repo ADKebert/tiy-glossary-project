@@ -11,3 +11,24 @@
     %p
       = "Author: #{@term.author}"
     %a{href: "#{@term.web_link}"} Explore
+
+%form.comment_create{ name: "comment_create", action: "/comments", method: "post" }
+  %input{type: "hidden", name: "comment[term_id]", value: "#{@term.id}" }
+  %label
+    Leave a comment:
+    %textarea{ rows: "5", name: "comment[body]" }
+  %label
+    Your Name:
+    %input{ type: "text", name: "comment[author]" }
+  %div.create_save
+    %input{type: "submit", value: "Save"}
+
+- @comments.each do |comment|
+  %div.comment_show
+    %p.comment_body
+      = comment.body
+    %div.comment_timestamp_author
+      %p
+        = comment.created_at
+      %p
+        = "-#{comment.author}"

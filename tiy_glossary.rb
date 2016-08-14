@@ -14,6 +14,11 @@ Rack::MethodOverride
 
 class Term < ActiveRecord::Base
   belongs_to :category
+  has_many :comments
+end
+
+class Comment < ActiveRecord::Base
+  belongs_to :term
 end
 
 class Category < ActiveRecord::Base
@@ -72,6 +77,7 @@ end
 get '/terms/:id' do
   # display one term's information
   @term = Term.find(params[:id])
+  @comments = @term.comments
   haml :terms_show
 end
 
@@ -87,6 +93,13 @@ delete '/terms/:id' do
   # delete a term
   Term.find(params[:id]).destroy
   redirect '/terms'
+end
+
+# ----------------COMMENT---------------
+post '/comments' do
+  comment = Comment.create(params["comment"])
+
+  redirect "/terms/#{comment.term_id}"
 end
 
 # --------------CATEGORY----------------
