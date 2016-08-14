@@ -218,6 +218,7 @@ h3 {
 
 .show_a_term {
   font-size: 1.6em;
+  border-bottom: 1px solid #fba43e;
 }
 
 /*--------------------------TERM CREATE------------------*/
@@ -280,4 +281,41 @@ h3 {
 .category_create input[type="text"] {
   flex-grow: 2;
   margin-left: 1em;
+}
+
+/*--------------------COMMENTS----------------*/
+.comment_create {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.comment_create label {
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.comment_create label textarea,
+.comment_create label input {
+  width: 60%;
+}
+
+.comment_show {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  border-top: 1px solid #fba43e;
+}
+
+p.comment_body {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.comment_timestamp_author {
+  display: flex;
+  justify-content: space-between;
 }

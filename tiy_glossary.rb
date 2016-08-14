@@ -41,13 +41,23 @@ end
 # --------------TERM------------------
 get '/terms' do
   # alphabetical list of all terms
+  @pages = false
   if params["search_string"]
     @terms = Term.where("name LIKE ?
                         OR definition LIKE ?",
                         "%#{params["search_string"]}%",
                         "%#{params["search_string"]}%")
   else
-    @terms = Term.all.order(:name)
+    count = Term.count
+    @pages = count / 20
+    unless count % 20 == 0
+      @pages += 1
+    end
+    if params["page_number"]
+      @terms = Term.order(:name).offset(20 * params["page_number"].to_i).take(20)
+    else
+      @terms = Term.order(:name).take(20)
+    end
   end
   # add a term
   # search a term

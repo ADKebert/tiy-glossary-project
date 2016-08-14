@@ -5,18 +5,24 @@
   %div.banner
     %div.index_banner
       %h2 Terms
-      %a{href: "/terms/new"} Add a Term
+      %a{ href: "/terms/new" } Add a Term
 
   - @terms.each do |term|
     %li
-      %a{href: "/terms/#{term.id}"}= term.name
+      %a{ href: "/terms/#{term.id}" }= term.name
       %div.edit_delete
-        %form{name: "edit_term", action: "/terms/#{term.id}/edit"}
+        %form{ name: "edit_term", action: "/terms/#{term.id}/edit" }
           %label
-            %input{type: "submit", value: "Edit"}
+            %input{ type: "submit", value: "Edit" }
             %span
-        %form{name: "delete_term", action: "/terms/#{term.id}", method: "post"}
-          %input{ name: "_method", value: "delete", type: "hidden"}
+        %form{ name: "delete_term", action: "/terms/#{term.id}", method: "post" }
+          %input{ name: "_method", value: "delete", type: "hidden" }
           %label
-            %input{type: "submit", value: "Delete"}
+            %input{ type: "submit", value: "Delete" }
             %span
+
+- if @pages
+  %form{ name: "term_page", action: "/terms" }
+    - (1..@pages).each do |value|
+      %button{ name: "page_number", value: "#{value - 1}" }
+        = value
