@@ -147,5 +147,16 @@ end
 get '/categories/:id' do
   # display a single category's information
   @category = Category.find(params[:id])
+  @pages = @category.terms.length / 20
+  unless @category.terms.length % 20 == 0
+    @pages += 1
+  end
+
+  if params["page_number"]
+    @offset = params["page_number"].to_i
+  else
+    @offset = nil
+  end
+
   haml :categories_show
 end

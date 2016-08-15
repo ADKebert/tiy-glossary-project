@@ -6,8 +6,12 @@
     %h2= @category.name
     = @category.subject_area
 
+  - if @offset
+    - terms = @category.terms.offset(20 * @offset).take(20)
+  - else
+    - terms = @category.terms.take(20)
 
-  -@category.terms.each do |term|
+  - terms.each do |term|
     %li.list_a_term
       %p
         %a{href: "/terms/#{term.id}"}= "#{term.name}:"
@@ -22,3 +26,8 @@
             %li
               %a{ href: "#{link.url}"}
                 = link.description
+
+  %form{ name: "term_page", action: "/categories/#{@category.id}" }
+    - (1..@pages).each do |value|
+      %button{ name: "page_number", value: "#{value - 1}" }
+        = value
