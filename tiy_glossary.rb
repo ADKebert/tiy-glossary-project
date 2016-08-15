@@ -15,6 +15,11 @@ Rack::MethodOverride
 class Term < ActiveRecord::Base
   belongs_to :category
   has_many :comments
+  has_many :web_links
+end
+
+class WebLink < ActiveRecord::Base
+  belongs_to :term
 end
 
 class Comment < ActiveRecord::Base
@@ -110,6 +115,13 @@ post '/comments' do
   comment = Comment.create(params["comment"])
 
   redirect "/terms/#{comment.term_id}"
+end
+
+# ----------------WEBLINK---------------
+post '/web_links' do
+  web_link = WebLink.create(params["web_link"])
+
+  redirect "/terms/#{web_link.term_id}"
 end
 
 # --------------CATEGORY----------------

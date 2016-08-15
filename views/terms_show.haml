@@ -7,10 +7,28 @@
     = @term.definition
   %p
     = "Category: #{@term.category.name}"
-  %div.author_link
+  %p
+    = "Author: #{@term.author}"
+  %div.web_links_show
     %p
-      = "Author: #{@term.author}"
-    %a{href: "#{@term.web_link}"} Explore
+      External Resources:
+    %ul
+      - @term.web_links.each do |link|
+        %li
+          %a{ href: "#{link.url}"}
+            = link.description
+
+
+%form.web_link_create{ name: "web_link_create", action: "/web_links", method: "post" }
+  %input{type: "hidden", name: "web_link[term_id]", value: "#{@term.id}" }
+  %label
+    Add an external link:
+    %input{ type: "text", name: "web_link[url]" }
+  %label
+    Description:
+    %input{ type: "text", name: "web_link[description]" }
+  %div.create_save
+    %input{type: "submit", value: "Save"}
 
 %form.comment_create{ name: "comment_create", action: "/comments", method: "post" }
   %input{type: "hidden", name: "comment[term_id]", value: "#{@term.id}" }
