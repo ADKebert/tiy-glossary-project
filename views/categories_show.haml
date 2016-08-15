@@ -2,6 +2,23 @@
   = @category.name
 
 %ul
-  %li
-    %h3= @category.name
-  %li= @category.subject_area
+  %div.banner
+    %h2= @category.name
+    = @category.subject_area
+
+
+  -@category.terms.each do |term|
+    %li.list_a_term
+      %p
+        %a{href: "/terms/#{term.id}"}= "#{term.name}:"
+        = term.definition
+      %p
+        = "Author: #{term.author}"
+      %div.web_links_show
+        %p
+          External Resources:
+        %ul
+          - term.web_links.each do |link|
+            %li
+              %a{ href: "#{link.url}"}
+                = link.description
